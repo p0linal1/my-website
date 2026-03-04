@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polina Loukiantchikov</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="logo"><img src="public/logo.svg" alt="Polina Loukiantchikov" /></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#dj">DJ</a>
+      </div>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <div id="flower-container"></div>
+    <div class="hero-content">
+      <h1 class="hero-fade" style="--delay:0">polina loukiantchikov</h1>
+      <p class="subtitle hero-fade" style="--delay:1">ml + data science</p>
+    </div>
+    <div class="scroll-hint hero-fade" style="--delay:2">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <section id="about" class="fade-section">
+    <div class="section-inner">
+      <h2>about</h2>
+      <div class="bio">
+        <p class="bio-text">applied mathematics student at uw, interested in machine learning and data science. i like working at the intersection of math and software — whether that's building models, full-stack apps, or anything in between.</p>
+        <p class="bio-text">when i'm not doing that, i'm probably behind the decks.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="fade-section">
+    <div class="section-inner">
+      <h2>experience</h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-date">Jun 2025 &mdash; Present</div>
+          <div class="timeline-body">
+            <h3>Incoming Software Engineering Intern</h3>
+            <span class="company">Datadog</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Sep 2024 &mdash; Present</div>
+          <div class="timeline-body">
+            <h3>Software Developer</h3>
+            <span class="company">UBC Launch Pad</span>
+            <ul>
+              <li>Developing a full-stack recipe management app using React Native, Supabase, and TypeScript</li>
+              <li>Building a RAG chatbot with LangChain integrating dietary data for personalized meal advice</li>
+              <li>Implementing barcode scanning with Open Food Facts API for automatic ingredient tracking</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">May 2024 &mdash; Aug 2024</div>
+          <div class="timeline-body">
+            <h3>Software Engineering Intern</h3>
+            <span class="company">Q4 Inc.</span>
+            <ul>
+              <li>Developed an internal tool to configure website components with a real-time visual editor using React, TypeScript, and DraftJS</li>
+              <li>Wrote comprehensive integration tests with Playwright, reducing manual QA time by 30%</li>
+              <li>Fixed production bugs, improved accessibility, and implemented UI/UX enhancements to the company's main product</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">May 2023 &mdash; Apr 2024</div>
+          <div class="timeline-body">
+            <h3>Software Developer</h3>
+            <span class="company">UBC Unmanned Aircraft Systems</span>
+            <ul>
+              <li>Built a ground station interface for drone telemetry using React, Flask, and WebSockets</li>
+              <li>Designed a PostgreSQL schema for real-time data logging and integrated Google Maps API</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">Jan 2023 &mdash; May 2024</div>
+          <div class="timeline-body">
+            <h3>Teaching Assistant</h3>
+            <span class="company">University of British Columbia</span>
+            <ul>
+              <li>TA for CPSC 110 (Computation, Programs, and Programming) — led labs and office hours for 40+ students</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="fade-section">
+    <div class="section-inner">
+      <h2>Projects</h2>
+      <div class="project-grid">
+
+        <div class="project-card">
+          <h3>Rate My Landlord</h3>
+          <p>Full-stack platform for reviewing landlords built with React, Node.js, Express, and MongoDB. Features JWT auth, search/filter, CRUD reviews, and responsive UI.</p>
+          <div class="tags">
+            <span>React</span><span>Node.js</span><span>MongoDB</span><span>Express</span>
+          </div>
+          <div class="project-links">
+          <a href="https://github.com/your-repo" target="_blank" rel="noopener noreferrer">github</a>
+          <a href="https://devpost.com/your-project" target="_blank" rel="noopener noreferrer">devpost</a>
+        </div>
+
+        </div>
+
+        <div class="project-card">
+          <h3>GrocerEase</h3>
+          <p>Grocery price comparison tool using Python, Selenium, and BeautifulSoup to scrape real-time data. Flask REST API backend with React frontend and OpenAI integration.</p>
+          <div class="tags">
+            <span>Python</span><span>Flask</span><span>React</span><span>Selenium</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>StudySync</h3>
+          <p>Study group platform with real-time scheduling, built with Java and Firebase for data persistence. Comprehensive JUnit testing with 85%+ code coverage.</p>
+          <div class="tags">
+            <span>Java</span><span>Firebase</span><span>JUnit</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="fade-section">
+    <div class="section-inner">
+      <h2>Skills</h2>
+      <div class="skills-columns">
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <div class="tags">
+            <span>Java</span><span>Python</span><span>JavaScript</span><span>TypeScript</span><span>C/C++</span><span>HTML/CSS</span><span>SQL</span><span>Racket</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Frameworks &amp; Libraries</h3>
+          <div class="tags">
+            <span>React</span><span>React Native</span><span>Node.js</span><span>Express</span><span>Flask</span><span>Next.js</span><span>LangChain</span><span>DraftJS</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Tools &amp; Platforms</h3>
+          <div class="tags">
+            <span>Git</span><span>Docker</span><span>AWS</span><span>Firebase</span><span>Supabase</span><span>PostgreSQL</span><span>MongoDB</span><span>Playwright</span><span>JUnit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="extra" class="fade-section">
+    <div class="section-inner">
+      <h2>dj</h2>
+      <div class="extra-card">
+        <div class="extra-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+            <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+          </svg>
+        </div>
+        <div class="extra-body">
+          <h3>DJ &amp; Music</h3>
+          <p>When I'm not writing code, I'm mixing tracks. Check out my sets and mixes on SoundCloud.</p>
+          <a href="https://soundcloud.com/p0linal" target="_blank" rel="noopener noreferrer" class="extra-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M11.56 8.87V17h8.76c1.85-.13 3.31-1.69 3.31-3.58 0-1.97-1.6-3.57-3.57-3.57-.36 0-.71.05-1.04.16-.37-2.28-2.34-4.01-4.72-4.01-1.06 0-2.05.33-2.86.9l.12 1.97zM1.45 13.87l.56 2.63.56-2.63-.56-2.28-.56 2.28zm1.76-.6l.45 3.23.45-3.23-.45-2.93-.45 2.93zm1.76-.37l.45 3.6.45-3.6-.45-3.93-.45 3.93zm1.76-1.15l.45 4.75.45-4.75-.45-4.38-.45 4.38zm1.76-.28l.45 5.03.45-5.03-.45-5.03-.45 5.03zm1.76.1l.45 4.93.45-4.93-.45-4.93-.45 4.93z"/></svg>
+            soundcloud.com/p0linal
+          </a>
+        </div>
+      </div>
+
+      <div class="dj-board-section">
+        <p class="dj-board-label">pioneer djm-900nxs2 &mdash; move your mouse over it</p>
+        <div id="dj-board-container"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Polina Loukiantchikov</p>
+  </footer>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
