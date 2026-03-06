@@ -62,7 +62,7 @@ const RENDER_VERT = `
 
 const RENDER_FRAG = `
   void main() {
-    gl_FragColor = vec4(0.34, 0.53, 0.96, 1.0);
+    gl_FragColor = vec4(1.0, 0.42, 0.61, 1.0);
   }
 `;
 
@@ -77,9 +77,9 @@ export function initDJBoard() {
   const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
   camera.position.set(-60, -25, 85);
 
-  const renderer = new THREE.WebGLRenderer({ antialias: false });
+  const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.setClearColor(0x000000, 1);
+  renderer.setClearColor(0x000000, 0);
   renderer.setSize(container.clientWidth, container.clientHeight);
   container.appendChild(renderer.domElement);
 
@@ -160,8 +160,9 @@ export function initDJBoard() {
       // RotatingScene equivalent: group responds to mouse pointer
       rotGrp = new THREE.Group();
       const pts = new THREE.Points(pGeo, renderMat);
-      pts.rotation.set(Math.PI, Math.PI / 4, 0);
+      pts.rotation.set(Math.PI, Math.PI / 6, 0);
       rotGrp.add(pts);
+      rotGrp.position.x = -65;
       scene.add(rotGrp);
     },
     undefined,

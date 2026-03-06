@@ -361,12 +361,40 @@ h2 {
 }
 
 .project-card {
+  position: relative;
+  overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 1.75rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   cursor: default;
+}
+
+/* spotlight glow that follows the mouse */
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    350px circle at var(--mouse-x, -200px) var(--mouse-y, -200px),
+    rgba(255, 107, 157, 0.1),
+    transparent 70%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .project-card:hover {
@@ -388,6 +416,50 @@ h2 {
   line-height: 1.55;
 }
 
+/* view all on GitHub CTA */
+.github-cta-wrap {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.github-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: border-color 0.25s, background 0.25s, transform 0.2s, box-shadow 0.25s, color 0.25s;
+}
+
+.github-cta:hover {
+  border-color: var(--accent);
+  background: var(--surface-hover);
+  color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 107, 157, 0.15);
+}
+
+.github-cta svg {
+  flex-shrink: 0;
+  animation: githubPulse 3s ease-in-out infinite;
+}
+
+.github-cta:hover svg {
+  animation: none;
+}
+
+@keyframes githubPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
 /* ── Tags (shared) ── */
 
 .tags {
@@ -397,45 +469,45 @@ h2 {
 }
 
 .tags span {
-  font-size: 0.7rem;
-  padding: 0.25rem 0.65rem;
+  font-size: 0.68rem;
+  padding: 0.2rem 0.55rem;
   border-radius: 999px;
-  background: var(--accent-dim);
-  color: var(--accent);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
   transition: background 0.2s;
 }
 
 .tags span:hover {
-  background: rgba(255, 107, 157, 0.22);
+  background: rgba(255, 255, 255, 0.07);
 }
 
-/* project links styled like the tag bubbles */
+/* project links */
 .project-links {
-  margin-top: 0.8rem;
+  margin-top: 1.25rem;
   display: flex;
-  gap: 0.6rem;
+  gap: 0.5rem;
   flex-wrap: wrap;
-  justify-content: center; /* center under the tags */
+  justify-content: center;
 }
 
 .project-links a {
-  font-size: 0.85rem;              /* larger than tag bubbles */
-  padding: 0.5rem 0.9rem;          /* more padding */
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.5rem 1.1rem;
   border-radius: 999px;
-  background: var(--accent);       /* different color (accent) */
-  color: #fff;                     /* white text for contrast */
+  background: rgba(255, 107, 157, 0.15);
+  color: var(--accent);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  box-shadow: 0 6px 18px rgba(255, 107, 157, 0.12);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.12s;
+  gap: 0.4rem;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .project-links a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(255, 107, 157, 0.18);
-  opacity: 0.95;
+  background: rgba(255, 107, 157, 0.25);
+  transform: translateY(-1px);
 }
 
 /* ── Skills ── */
@@ -514,10 +586,26 @@ h2 {
   opacity: 0.75;
 }
 
+/* ── DJ Layout ── */
+
+.dj-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.dj-layout .extra-card {
+  flex-shrink: 0;
+}
+
 /* ── DJ Board ── */
 
 .dj-board-section {
-  margin-top: 2.5rem;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .dj-board-label {
@@ -533,14 +621,62 @@ h2 {
   height: 440px;
   border-radius: 14px;
   overflow: hidden;
-  background: #000;
-  border: 1px solid var(--border);
+  background: transparent;
 }
 
 #dj-board-container canvas {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+#connect {
+  padding-top: 2rem;
+}
+
+/* ── Connect ── */
+
+.connect-links {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.connect-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: color 0.25s, transform 0.25s;
+}
+
+.connect-item:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.connect-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: border-color 0.25s;
+}
+
+.connect-item:hover .connect-icon {
+  border-color: var(--accent);
+}
+
+.connect-item span {
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  text-transform: lowercase;
 }
 
 /* ── Footer ── */
@@ -555,13 +691,68 @@ footer {
 
 /* ── Responsive ── */
 
+/* ── Hamburger button (hidden on desktop) ── */
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 @media (max-width: 640px) {
+  .menu-toggle {
+    display: flex;
+  }
+
   .nav-links {
-    gap: 1rem;
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(10, 10, 10, 0.97);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 0 1rem;
+  }
+
+  .nav-links.open {
+    display: flex;
   }
 
   .nav-links a {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
+    padding: 0.75rem 2rem;
+  }
+
+  .nav-links a::after {
+    display: none;
   }
 
   .timeline {
@@ -575,6 +766,15 @@ footer {
   .extra-card {
     flex-direction: column;
     gap: 1rem;
+  }
+
+  .dj-layout {
+    flex-direction: column;
+  }
+
+  .dj-layout .extra-card {
+    max-width: none;
+    width: 100%;
   }
 
   #dj-board-container {
